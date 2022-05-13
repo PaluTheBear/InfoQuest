@@ -1,0 +1,14 @@
+.App {
+    display: grid;
+    grid-template-columns: [col0] 5% [col1] 10em [col2] auto [col3] 10em [col4] 5% [col-end];
+    grid-template-rows: [row0] 50px [row1] auto [row-end];
+}
+
+.RenderPage {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    justify-self: stretch;
+    align-self: stretch;
+}
