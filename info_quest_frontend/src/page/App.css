@@ -1,14 +1,19 @@
 .App {
+    min-width: 100vw;
+    min-height: 100vh;
+
     display: grid;
     grid-template-columns: [col0] 5% [col1] 10em [col2] auto [col3] 10em [col4] 5% [col-end];
-    grid-template-rows: [row0] 50px [row1] auto [row-end];
+    grid-template-rows: [row0] 10% [row1] auto [row-end];
+
+    grid-template-areas:
+    "header header header header header"
+    "main main main main main";
 }
 
 .RenderPage {
-    grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row-start: 2;
-    grid-row-end: 3;
+    grid-area: main;
     justify-self: stretch;
     align-self: stretch;
+    background: #3E3E3E;
 }

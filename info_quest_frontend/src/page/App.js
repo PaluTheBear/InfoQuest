@@ -1,8 +1,10 @@
-import logo from '../logo.svg';
 import './App.css';
-import {useState} from "react";
+import React, {useState} from "react";
 import LoadingPage from "./LoadingPage";
 import Header from "../components/Header"
+import Landing from "./Landing";
+import QuestLine from "./QuestLine";
+import Quest from "./Quest";
 
 const App = () => {
     const [isLoading, setIsLoading] = useState(true)
@@ -16,24 +18,14 @@ const App = () => {
             <LoadingPage/>
             }
             {!isLoading &&
-            // Todo: Header Bar with Icon, Title and Userinfo
             <div className="App">
                 <Header title={page}/>
                 <div className="RenderPage">
-                    <header className="App-header">
-                        <img src={logo} className="App-logo" alt="logo"/>
-                        <p>
-                            Edit <code>src/App.js</code> and save to reload.
-                        </p>
-                        <a
-                            className="App-link"
-                            href="https://reactjs.org"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Learn React
-                        </a>
-                    </header>
+                    {() => {
+                        if (page === "LANDING") return <Landing/>
+                        else if (page === "QUESTLINE") return <QuestLine/>
+                        else if (page === "QUEST") return <Quest/>
+                    }}
                 </div>
             </div>
             }

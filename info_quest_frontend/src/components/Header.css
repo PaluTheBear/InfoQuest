@@ -1,11 +1,5 @@
 .PageHeader {
-    grid-column-start: col0;
-    grid-column-end: col-end;
-    grid-row-start: 1;
-    grid-row-end: 2;
-
-    justify-self: stretch;
-    align-self: stretch;
+    grid-area: header;
 
     background: black;
 }
