@@ -1,5 +1,6 @@
 from APIModels import *
 from fastapi import FastAPI
+from typing import List
 import QuestLoader as ql
 import UserManager as um
 
@@ -9,7 +10,7 @@ info_quest = FastAPI()
 async def root():
     return {"message": "hello world"}
 
-@info_quest.get("/questlines", response_model=list[QuestLine])
+@info_quest.get("/questlines", response_model=List[QuestLine])
 async def get_questlines():
     return ql.get_all_questlines()
 
@@ -17,7 +18,7 @@ async def get_questlines():
 async def get_questline(questline_id: int):
     return ql.get_questline(questline_id)
 
-@info_quest.get("/quests", response_model=list[Quest])
+@info_quest.get("/quests", response_model=List[Quest])
 async def get_quests():
     return ql.get_all_quests()
 
