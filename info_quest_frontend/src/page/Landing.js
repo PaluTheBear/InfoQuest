@@ -7,8 +7,8 @@ const Landing = ({questLineJson, onClick}) => {
 
     return (
         <div className="LandingPage">
-            {questLineJson.map(ql => (
-                <QuestLineComponent title={ql.title} onClick={onClick}/>
+            {questLineJson.map((ql, index) => (
+                <QuestLineComponent title={ql.title} id={index}/>
             ))}
         </div>)
 }
