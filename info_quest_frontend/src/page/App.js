@@ -12,6 +12,12 @@ const App = () => {
 
     setTimeout(() => setIsLoading(false), 3000)
 
+    const getRenderPage = () => {
+        if (page === "LANDING") return <Landing/>
+        else if (page === "QUESTLINE") return <QuestLine/>
+        else if (page === "QUEST") return <Quest/>
+    }
+
     return (
         <div>
             {isLoading &&
@@ -21,11 +27,7 @@ const App = () => {
             <div className="App">
                 <Header title={page}/>
                 <div className="RenderPage">
-                    {() => {
-                        if (page === "LANDING") return <Landing/>
-                        else if (page === "QUESTLINE") return <QuestLine/>
-                        else if (page === "QUEST") return <Quest/>
-                    }}
+                    {getRenderPage()}
                 </div>
             </div>
             }
