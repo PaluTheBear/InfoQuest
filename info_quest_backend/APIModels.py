@@ -2,12 +2,12 @@ from pydantic import BaseModel
 
 class Validation(BaseModel):
     type: str
-    solution: str
+    solution: str = None
 
 class Subtask(BaseModel):
     title: str
-    description: str
-    validation: Validation
+    description: str = None
+    validation: Validation = None
 
 class QuestLine(BaseModel):
     title: str

@@ -6,13 +6,45 @@ try:
 except ImportError:
     from yaml import Loader, Dumper
 
-def load_questlines():
-    questlines_file = open('./data/questlines.yaml', 'r')
-    data = load(questlines_file, Loader=Loader)
-    all_questlines = []
-    for questline_yaml in data:
-        questline_yaml = questline_yaml['questline']
-        questline = QuestLine(title = questline_yaml['title'])
-        questline.quests = [hash(open(quest_path, 'r')) for quest_path in questline_yaml['quests']]
-        all_questlines.append(questline)
+all_questlines = []
+all_quests = {}
+
+def _load_questlines():
+    with open('./data/questlines.yaml', 'rt', encoding='utf-8') as questlines_file:
+        data = load(questlines_file, Loader=Loader)
+        for questline_yaml in data:
+            questline_yaml = questline_yaml['questline']
+            questline = QuestLine(title = questline_yaml['title'])
+            questline.quests = [_load_quest(quest_path) for quest_path in questline_yaml['quests']]
+            all_questlines.append(questline)
+
+def _load_quest(quest_path: str):
+    with open(quest_path, 'rt', encoding='utf-8') as quest_file:
+        quest_yaml = quest_file.read()
+        quest_id = hash(quest_yaml)
+        quest_data = load(quest_yaml, Loader=Loader)
+        if not quest_data:
+            return -1
+        quest = Quest(
+            id = quest_id, 
+            title = quest_data['title'])
+        for subtask_yaml in quest_data['subtasks']:
+            subtask_yaml = subtask_yaml['subtask']
+            subtask = Subtask(
+                title = subtask_yaml['title'],
+                description= subtask_yaml['description'])
+            validation_yaml = subtask_yaml['validation']
+            subtask.validation = Validation(
+                type = validation_yaml['type'],
+                solution = validation_yaml['solution'])
+        all_quests[quest_id] = quest
+        return quest_id
+
+def get_all_questlines():
     return all_questlines
+
+def get_quest(quest_id: int):
+    return all_quests[quest_id]
+
+# Initialization
+_load_questlines()

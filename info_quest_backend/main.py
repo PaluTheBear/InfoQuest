@@ -23,11 +23,11 @@ async def root():
 
 @info_quest.get("/questlines", response_model=list[QuestLine])
 async def get_questlines():
-    return ql.load_questlines()
+    return ql.get_all_questlines()
 
 @info_quest.get("/quests/{quest_id}", response_model=Quest)
 async def get_quest(quest_id: int):
-    return {"quest_id": quest_id}
+    return ql.get_quest(quest_id)
 
 @info_quest.get("/users/{user_id}", response_model=ProgressSummary)
 async def get_user_progress(user_id: int):
