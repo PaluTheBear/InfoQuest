@@ -6,7 +6,7 @@ import Landing from "./Landing";
 import QuestLine from "./QuestLine";
 import Quest from "./Quest";
 import {getQuestlines, getUserInfo} from "../util/RestHandler";
-import {Route, Routes} from 'react-router-dom'
+import {Route, Routes, useParams} from 'react-router-dom'
 
 const App = () => {
     const [isLoading, setIsLoading] = useState(true)
@@ -30,10 +30,10 @@ const App = () => {
         setPage("QUESTLINE")
     }
 
-    const getRenderPage = () => {
-        if (page === "LANDING") return <Landing questLineJson={questLines} onClick={handleQuestLineClick}/>
-        else if (page === "QUESTLINE") return <QuestLine questLine={questLines[0]}/>
-        else if (page === "QUEST") return <Quest/>
+    const QuestLinePage = () => {
+        const { id } = useParams();
+
+        return <QuestLine questLineId={id}/>;
     }
 
     return (
@@ -48,7 +48,7 @@ const App = () => {
                     <Routes>
                         <Route path="/" element={<Landing questLineJson={questLines} onClick={handleQuestLineClick}/>}/>
                         <Route path="/questLine">
-                            <Route path=":id" element={<QuestLine questLine={questLines[0]}/>}/>
+                            <Route path=":id" element={<QuestLinePage />}/>
                         </Route>
                     </Routes>
                 </div>

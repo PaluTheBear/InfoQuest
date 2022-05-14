@@ -2,17 +2,24 @@ import React from "react";
 import { useState, useEffect } from "react";
 import './QuestLine.css';
 import { GiBookmarklet } from 'react-icons/gi';
-import { getQuest } from "../util/RestHandler";
+import { getQuest, getQuestline } from "../util/RestHandler";
 import Xarrow from "react-xarrows";
+import { Link } from "react-router-dom";
 
-const QuestLine = ({ questLine }) => {
+const QuestLine = ({ questLineId }) => {
     const [quests, setQuests] = useState([]);
 
     useEffect(() => {
-        const quests = Promise.all(questLine.quests.map(getQuest));
+        const loadQuests = async () => {
+            const questLine = await getQuestline(questLineId);
+            console.log(questLine)
+            const quests = await Promise.all(questLine.quests.map(getQuest));
 
-        quests.then(setQuests)
-    }, [ questLine ]);
+            return quests;
+        };
+
+        loadQuests().then(setQuests);
+    }, [ questLineId ]);
 
     return (
         <>
@@ -31,14 +38,16 @@ const QuestLine = ({ questLine }) => {
                         animateDrawing={true}
                        />;
             })}
-            <div className='quest-line' id="amogus">
+            <div className='quest-line'>
                 {quests.map(quest => (
-                    <div className='quest'>
-                        <div className='quest-sign' id={quest.id.toString()} key={quest.id}>
-                            <GiBookmarklet />
+                    <Link className='quest' to={`/questLine/${questLineId}/${quest.id}`}>
+                        <div>
+                            <div className='quest-sign' id={quest.id.toString()} key={quest.id}>
+                                <GiBookmarklet />
+                            </div>
+                            <div className='quest-text'>{quest.title}</div>
                         </div>
-                        <div className='quest-text'>{quest.title}</div>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </>

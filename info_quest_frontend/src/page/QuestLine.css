@@ -34,6 +34,8 @@
 .quest-text {
     text-align: center;
     width: 100%;
+    font-weight: 400;
+    font-size: large;
 }
 
 .quest:nth-child(10n + 6)  {grid-column:5}
