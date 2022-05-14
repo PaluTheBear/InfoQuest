@@ -6,6 +6,7 @@ import Landing from "./Landing";
 import QuestLine from "./QuestLine";
 import Quest from "./Quest";
 import {getQuestlines, getUserInfo} from "../util/RestHandler";
+import {Route, Routes} from 'react-router-dom'
 
 const App = () => {
     const [isLoading, setIsLoading] = useState(true)
@@ -44,7 +45,12 @@ const App = () => {
             <div className="App">
                 <Header title={page}/>
                 <div className="RenderPage">
-                    {getRenderPage()}
+                    <Routes>
+                        <Route path="/" element={<Landing questLineJson={questLines} onClick={handleQuestLineClick}/>}/>
+                        <Route path="/questLine">
+                            <Route path=":id" element={<QuestLine questLine={questLines[0]}/>}/>
+                        </Route>
+                    </Routes>
                 </div>
             </div>
             }

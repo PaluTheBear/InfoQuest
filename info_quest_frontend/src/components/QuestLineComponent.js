@@ -1,12 +1,15 @@
 import * as PropTypes from "prop-types";
 import React from "react";
 import "./Components.css"
+import {Link} from "react-router-dom";
 
-const QuestLineComponent = ({title, onClick}) => {
+const QuestLineComponent = ({title, id}) => {
     return (
-        <div className="QuestLineComponent" onClick={onClick}>
-            {title}
-        </div>
+        <Link to={`questLine/${id}`}>
+            <div className="QuestLineComponent">
+                {title}
+            </div>
+        </Link>
     );
 }
 
