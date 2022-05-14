@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from typing import List
 
 class Validation(BaseModel):
     type: str
@@ -12,16 +13,16 @@ class Subtask(BaseModel):
 class QuestLine(BaseModel):
     id: int
     title: str
-    quests: list[int] = []
+    quests: List[int] = []
 
 class Quest(BaseModel):
     id: int
     title: str
-    subtasks: list[Subtask] = []
+    subtasks: List[Subtask] = []
 
 class QuestProgress(BaseModel):
     quest_id: int
     subtask_id: int
 
 class ProgressSummary(BaseModel):
-    quests: list[QuestProgress] = []
+    quests: List[QuestProgress] = []
