@@ -1,0 +1,17 @@
+- questline:
+    title: "Questline 1"
+    quests: 
+      - "./data/questline1/quest11.yaml"
+      - "./data/questline1/quest12.yaml"
+
+- questline:
+    title: "Questline 2"
+    quests:
+      - "./data/questline2/quest21.yaml"
+
+- questline:
+    title: "Questline 3"
+    quests:
+      - "./data/questline3/quest31.yaml"
+      - "./data/questline3/quest32.yaml"
+      - "./data/questline3/quest33.yaml"

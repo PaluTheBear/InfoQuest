@@ -1,0 +1,13 @@
+title: "An amazing quest"
+subtasks:
+  subtask:
+    title: "Do the thing"
+    description: "Please do the thing and do it right. Then dance!"
+    validation:
+      type: "Checkmark"
+  subtask:
+    title: "Time for another thing"
+    description: "This other thing is great, too. You should do it. And don't forget so smile! :D"
+    validation:
+      type: "Password"
+      solution: "42"

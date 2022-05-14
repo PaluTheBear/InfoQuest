@@ -1,12 +1,8 @@
 .LandingPage {
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     justify-content: flex-start;
     align-content: flex-start;
     row-gap: 5rem;
-    column-gap: 8rem;
-}
-
-.QuestLineContainer {
-
+    background-color: white;
 }

@@ -26,12 +26,24 @@ const getQuest = async (id) => {
 
 const getMockQuestlines = () => [
     {
-        title: 'Mock questline',
+        title: 'Welcome @ Uni',
         quests: [32, 159, 12, 323, 24, 1236, 734, 5464, 345, 253, 454]
     },
     {
-        title: 'Mock questline 2',
+        title: 'Java',
         quests: [32, 159, 12, 323]
+    },
+    {
+        title: 'Theo',
+        quests: [32, 159, 333, 12, 323]
+    },
+    {
+        title: 'Campus',
+        quests: [32, 123, 159, 12, 323]
+    },
+    {
+        title: 'Saisonal',
+        quests: [2, 3]
     }
 ];
 const getMockUserInfo = () => [{id: 0, progress: 5}, {id: 2, progress: 2}];
