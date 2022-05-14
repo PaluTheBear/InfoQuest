@@ -10,6 +10,7 @@ class Subtask(BaseModel):
     validation: Validation = None
 
 class QuestLine(BaseModel):
+    id: int
     title: str
     quests: list[int] = []
 

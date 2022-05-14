@@ -12,11 +12,15 @@ all_quests = {}
 def _load_questlines():
     with open('./data/questlines.yaml', 'rt', encoding='utf-8') as questlines_file:
         data = load(questlines_file, Loader=Loader)
+        questline_id = 0
         for questline_yaml in data:
             questline_yaml = questline_yaml['questline']
-            questline = QuestLine(title = questline_yaml['title'])
+            questline = QuestLine(
+                id = questline_id,
+                title = questline_yaml['title'])
             questline.quests = [_load_quest(quest_path) for quest_path in questline_yaml['quests']]
             all_questlines.append(questline)
+            questline_id += 1
 
 def _load_quest(quest_path: str):
     with open(quest_path, 'rt', encoding='utf-8') as quest_file:
@@ -48,3 +52,5 @@ def get_quest(quest_id: int):
 
 # Initialization
 _load_questlines()
+
+print(all_questlines)
