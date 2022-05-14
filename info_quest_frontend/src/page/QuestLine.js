@@ -3,9 +3,10 @@ import { useState, useEffect } from "react";
 import './QuestLine.css';
 import { GiBookmarklet } from 'react-icons/gi';
 import { getQuest } from "../util/RestHandler";
+import Xarrow from "react-xarrows";
 
 const QuestLine = ({ questLine }) => {
-    const [quests, setQuests] = useState([])
+    const [quests, setQuests] = useState([]);
 
     useEffect(() => {
         const quests = Promise.all(questLine.quests.map(getQuest));
@@ -14,13 +15,33 @@ const QuestLine = ({ questLine }) => {
     }, [ questLine ]);
 
     return (
-        <div className='quest-line'>
-            {quests.map(quest => (
-                <div className='quest' key={quest.id}>
-                    <GiBookmarklet />
-                </div>
-            ))}
-        </div>
+        <>
+            {quests.map((quest, idx) => {
+                if (idx >= quests.length - 1) {
+                    return;
+                }
+
+                const nextQuest = quests[idx + 1];
+
+                return <Xarrow
+                        key={quest.id}
+                        start={quest.id.toString()}
+                        end={nextQuest.id.toString()}
+                        color='black'
+                        animateDrawing={true}
+                       />;
+            })}
+            <div className='quest-line' id="amogus">
+                {quests.map(quest => (
+                    <div className='quest'>
+                        <div className='quest-sign' id={quest.id.toString()} key={quest.id}>
+                            <GiBookmarklet />
+                        </div>
+                        <div className='quest-text'>{quest.title}</div>
+                    </div>
+                ))}
+            </div>
+        </>
     );
 }
 

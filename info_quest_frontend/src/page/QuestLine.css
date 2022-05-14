@@ -10,6 +10,9 @@
 }
 
 .quest {
+}
+
+.quest-sign {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,10 +25,15 @@
     transition: all 0.2s;
 }
 
-.quest:hover {
+.quest-sign:hover {
     cursor: pointer;
     filter: invert(1);
     border-color: white;
+}
+
+.quest-text {
+    text-align: center;
+    width: 100%;
 }
 
 .quest:nth-child(10n + 6)  {grid-column:5}
