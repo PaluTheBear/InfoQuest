@@ -1,6 +1,6 @@
 .App {
-    min-width: 100vw;
-    min-height: 100vh;
+    width: 100vw;
+    height: 100vh;
 
     display: grid;
     grid-template-columns: [col0] 5% [col1] 10em [col2] auto [col3] 10em [col4] 5% [col-end];
@@ -15,5 +15,5 @@
     grid-area: main;
     justify-self: stretch;
     align-self: stretch;
-    background: #3E3E3E;
+    background: white;
 }

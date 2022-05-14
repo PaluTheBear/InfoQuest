@@ -1,0 +1,26 @@
+.quest-line {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(5,1fr); /*define the number of column*/
+    grid-auto-flow: dense; /* this is important to fill all the space*/
+    grid-gap: 20px;
+    padding: 10px;
+}
+
+.quest {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 7.5vw;
+    height: 7.5vw;
+    font-size: 5vw;
+    background-color: #fafafa;
+    border: 4px solid #a050bb;
+    border-radius: 50%;
+}
+
+.quest:nth-child(10n + 6)  {grid-column:5}
+.quest:nth-child(10n + 7)  {grid-column:4}
+.quest:nth-child(10n + 8)  {grid-column:3}
+.quest:nth-child(10n + 9)  {grid-column:2}
