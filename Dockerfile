@@ -11,20 +11,20 @@ RUN apt-get install -y nodejs
 RUN apt-get install -y python
 RUN npm install -g serve
 
-WORKDIR /app/frontend/
+WORKDIR /app/info_quest_frontend/
 
-COPY /info_quest_frontend/package.json /info_quest_frontend/package-lock.json  /app/frontend/
+COPY /info_quest_frontend/package.json /info_quest_frontend/package-lock.json  /app/info_quest_frontend/
 
 RUN npm install
 
-COPY /info_quest_frontend/src  /app/frontend/src/
-COPY /info_quest_frontend/public /app/frontend/public/
+COPY /info_quest_frontend/src  /app/info_quest_frontend/src/
+COPY /info_quest_frontend/public /app/info_quest_frontend/public/
 
 RUN npm run build
 
-WORKDIR /app/backend/
+WORKDIR /app/info_quest_backend/
 
-COPY /info_quest_backend/ /app/backend/
+COPY /info_quest_backend/ /app/info_quest_backend/
 
 RUN python3 -m pip install --no-cache-dir -r requirements.txt
 RUN chmod +x run.sh
@@ -35,7 +35,8 @@ EXPOSE 8000
 WORKDIR /app
 COPY supervisord.conf .
 
-RUN echo $PATH
-
+# RUN bash backend/run.sh
+# CMD ["bash", "info_quest_backend/run.sh"]
+# CMD ["serve", "-s", "info_quest_frontend/build"]
 CMD ["/usr/bin/supervisord"]
 
