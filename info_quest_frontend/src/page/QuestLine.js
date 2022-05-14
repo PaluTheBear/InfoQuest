@@ -40,7 +40,7 @@ const QuestLine = ({ questLineId }) => {
             })}
             <div className='quest-line'>
                 {quests.map(quest => (
-                    <Link className='quest' to={`/questLine/${questLineId}/${quest.id}`}>
+                    <Link className='quest' to={`/quest/${quest.id}`}>
                         <div>
                             <div className='quest-sign' id={quest.id.toString()} key={quest.id}>
                                 <GiBookmarklet />

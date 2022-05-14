@@ -31,6 +31,13 @@ const getQuest = async (id) => {
     // return json
 }
 
+const updateProgress = async (questId, progress) => {
+    return console.log('updated progress');
+    const json = await fetch(`${userInfoEndpoint}/`)
+        .then(response => response.json())
+        .catch(err => console.log(err));
+}
+
 const getMockQuestlines = () => [
     {
         id: 0,
@@ -58,7 +65,7 @@ const getMockQuestlines = () => [
         quests: [2, 3]
     }
 ];
-const getMockUserInfo = () => [{id: 0, progress: 5}, {id: 2, progress: 2}];
+const getMockUserInfo = () => [{id: 32, progress: 1}, {id: 2, progress: 0}];
 const getMockQuest = () => (
     {
         id: Math.random(),
@@ -67,15 +74,20 @@ const getMockQuest = () => (
             {
                 title: "Das ist ein Subtasktitle",
                 description: "Das ist eien tolle description. Hier steht gaaaanz viel Text...",
-                validation: "checkmark"
+                validation: {
+                    type: 'checkmark'
+                }
             },
             {
                 title: "Das ist ein weiterer Subtasktitle",
                 description: "ALSKJDFSLDJFKASLKDFJASLDKFJASLDKFJASLDKFJASLKDFsadfasdfasdfasdfasdfasdf asdfasdfasdf sadfasdfklasdfjaskldfj",
-                validation: "checkmark"
+                validation: {
+                    type: 'question',
+                    answer: 'testanswer'
+                }
             }
         ]
     }
 );
 
-export {getUserInfo, getQuest, getQuestlines, getQuestline}
+export {getUserInfo, getQuest, getQuestlines, getQuestline, updateProgress}
