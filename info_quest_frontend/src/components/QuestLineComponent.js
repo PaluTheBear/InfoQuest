@@ -1,15 +1,15 @@
 import * as PropTypes from "prop-types";
 import React from "react";
 import "./Components.css"
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 const QuestLineComponent = ({title, id}) => {
     return (
-        <Link to={`questLine/${id}`}>
+        <NavLink to={`questLine/${id}`} className="noLink">
             <div className="QuestLineComponent">
                 {title}
             </div>
-        </Link>
+        </NavLink>
     );
 }
 

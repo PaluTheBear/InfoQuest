@@ -12,6 +12,9 @@
 
     font-family: "Comic Code Ligatures Medium";
     font-size: xx-large;
+
+    color: black;
+
 }
 
 .QuestLineComponent:hover {
@@ -19,7 +22,6 @@
     color: white;
     animation-name: questLineComponentHover;
     animation-duration: .3s;
-    cursor: pointer;
 }
 
 @keyframes questLineComponentHover {
@@ -31,4 +33,8 @@
         background-color: black;
         color: white;
     }
+}
+
+.noLink {
+    text-decoration: none;
 }

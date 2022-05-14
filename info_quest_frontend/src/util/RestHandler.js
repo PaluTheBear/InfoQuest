@@ -47,6 +47,23 @@ const getMockQuestlines = () => [
     }
 ];
 const getMockUserInfo = () => [{id: 0, progress: 5}, {id: 2, progress: 2}];
-const getMockQuest = () => ({id: Math.random(), title: "Questtitle", description: "Description stiudashakjsdaskjd"});
+const getMockQuest = () => (
+    {
+        id: Math.random(),
+        title: "Questtitle",
+        subtasks: [
+            {
+                title: "Das ist ein Subtasktitle",
+                description: "Das ist eien tolle description. Hier steht gaaaanz viel Text...",
+                validation: "checkmark"
+            },
+            {
+                title: "Das ist ein weiterer Subtasktitle",
+                description: "ALSKJDFSLDJFKASLKDFJASLDKFJASLDKFJASLDKFJASLKDFsadfasdfasdfasdfasdfasdf asdfasdfasdf sadfasdfklasdfjaskldfj",
+                validation: "checkmark"
+            }
+        ]
+    }
+);
 
 export {getUserInfo, getQuest, getQuestlines}
