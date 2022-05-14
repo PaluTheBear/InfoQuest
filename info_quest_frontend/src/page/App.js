@@ -9,24 +9,28 @@ import {getQuestlines, getUserInfo} from "../util/RestHandler";
 
 const App = () => {
     const [isLoading, setIsLoading] = useState(true)
-    const [page, setPage] = useState("QUESTLINE")
+    const [page, setPage] = useState("LANDING")
     const [questLines, setQuestLines] = useState([{title: "questLineTitel"}])
     const [userInfo, setUserInfo] = useState([{id: 0, progress: 5}, {id: 2, progress: 2}])
 
     useEffect(() => {
-            async function fetchData() {
-                const rUI = await getUserInfo()
-                const rQL = await getQuestlines()
-                setQuestLines(rQL)
-                setUserInfo(rUI)
-            }
+        async function fetchData() {
+            const rUI = await getUserInfo()
+            const rQL = await getQuestlines()
+            setQuestLines(rQL)
+            setUserInfo(rUI)
+        }
 
-            fetchData()
-                .finally(() => setIsLoading(false))
-        }, [])
+        fetchData()
+            .finally(() => setIsLoading(false))
+    }, [])
+
+    const handleQuestLineClick = () => {
+        setPage("QUESTLINE")
+    }
 
     const getRenderPage = () => {
-        if (page === "LANDING") return <Landing questLineJson={questLines}/>
+        if (page === "LANDING") return <Landing questLineJson={questLines} onClick={handleQuestLineClick}/>
         else if (page === "QUESTLINE") return <QuestLine questLine={questLines[0]}/>
         else if (page === "QUEST") return <Quest/>
     }

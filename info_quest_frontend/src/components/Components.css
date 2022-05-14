@@ -1,0 +1,34 @@
+.QuestLineComponent {
+    width: calc((90vw / 5) - 15px);
+    height: calc(((90vw / 5) - 10px) * 0.75);
+    min-width: 100px;
+    margin: 10px 5px 0 5px;
+    border-radius: 1rem;
+    border: 2px solid black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Comic Code Ligatures Medium";
+    font-size: xx-large;
+}
+
+.QuestLineComponent:hover {
+    background-color: black;
+    color: white;
+    animation-name: questLineComponentHover;
+    animation-duration: .3s;
+    cursor: pointer;
+}
+
+@keyframes questLineComponentHover {
+    from {
+        background-color: white;
+        color: black;
+    }
+    to {
+        background-color: black;
+        color: white;
+    }
+}
