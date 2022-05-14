@@ -1,6 +1,7 @@
 from APIModels import *
-import QuestLoader as ql
 from fastapi import FastAPI
+import QuestLoader as ql
+import UserManager as um
 
 info_quest = FastAPI()
 
@@ -16,14 +17,18 @@ async def get_questlines():
 async def get_questline(questline_id: int):
     return ql.get_questline(questline_id)
 
+@info_quest.get("/quests", response_model=list[Quest])
+async def get_quests():
+    return ql.get_all_quests()
+
 @info_quest.get("/quests/{quest_id}", response_model=Quest)
 async def get_quest(quest_id: int):
     return ql.get_quest(quest_id)
 
 @info_quest.get("/users/{user_id}", response_model=ProgressSummary)
 async def get_user_progress(user_id: int):
-    return {"user_id": user_id}
+    return um.get_user_progress(user_id)
 
-@info_quest.post("/users/{user_id}", response_model=QuestProgress)
-async def update_user_progress(user_id: int, progressUpdate: QuestProgress):
-    return progressUpdate
+@info_quest.post("/users/{user_id}")
+async def update_user_progress(user_id: int, progress_update: QuestProgress):
+    return um.update_user_progress(user_id, progress_update)

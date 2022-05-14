@@ -1,6 +1,6 @@
-from yaml import load, dump
-
 from APIModels import *
+from hashlib import blake2b
+from yaml import load, dump
 try:
     from yaml import CLoader as Loader, CDumper as Dumper
 except ImportError:
@@ -25,7 +25,7 @@ def _load_questlines():
 def _load_quest(quest_path: str):
     with open(quest_path, 'rt', encoding='utf-8') as quest_file:
         quest_yaml = quest_file.read()
-        quest_id = hash(quest_yaml)
+        quest_id = _generate_quest_hash(quest_yaml)
         quest_data = load(quest_yaml, Loader=Loader)
         if not quest_data:
             return -1
@@ -41,14 +41,23 @@ def _load_quest(quest_path: str):
             subtask.validation = Validation(
                 type = validation_yaml['type'],
                 solution = validation_yaml['solution'])
+            quest.subtasks.append(subtask)
         all_quests[quest_id] = quest
         return quest_id
+
+def _generate_quest_hash(quest_content: str):
+    h = blake2b(digest_size=5)
+    h.update(quest_content.encode('utf-8'))
+    return int(h.hexdigest(), 16)
 
 def get_all_questlines():
     return list(all_questlines.values())
 
 def get_questline(questline_id: int):
     return all_questlines[questline_id]
+
+def get_all_quests():
+    return list(all_quests.values())
 
 def get_quest(quest_id: int):
     return all_quests[quest_id]
