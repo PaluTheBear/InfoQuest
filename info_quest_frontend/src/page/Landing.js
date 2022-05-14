@@ -5,7 +5,7 @@ import React from "react";
 const Landing = ({questLineJson}) => {
 
     return (
-        <div className="LandingPage">o
+        <div className="LandingPage">
             {questLineJson.map(ql => (
                 <QuestLineComponent title={ql.title}/>
             ))}
@@ -13,7 +13,7 @@ const Landing = ({questLineJson}) => {
 }
 
 Landing.propTypes = {
-    questLineJson: PropTypes.object
+    questLineJson: PropTypes.array
 }
 
 export default Landing;
