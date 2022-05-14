@@ -1,0 +1,8 @@
+title: "Amazing Quest 2: Double Boogaloo"
+subtasks:
+  subtask:
+    title: "It's time to q-q-q-quiz!"
+    description: "This is the most super duper diffucult quiz to ever exist"
+    validation:
+      type: "Quiz"
+      solution: "Answer B"

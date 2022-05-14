@@ -1,6 +1,7 @@
+from APIModels import *
+import QuestLoader as ql
 import sqlite3
 from fastapi import FastAPI
-from pydantic import BaseModel
 
 # Database
 def get_db():
@@ -13,32 +14,6 @@ def get_db():
     finally:
         con.close()
 
-# API models
-class Validation(BaseModel):
-    type: str
-    solution: str
-
-class Subtask(BaseModel):
-    title: str
-    description: str
-    validation: Validation
-
-class QuestLine(BaseModel):
-    title: str
-    quests: list[int]
-
-class Quest(BaseModel):
-    id: int
-    title: str
-    subtasks: list[Subtask]
-
-class QuestProgress(BaseModel):
-    quest_id: int
-    subtask_id: int
-
-class ProgressSummary(BaseModel):
-    quests: list[QuestProgress]
-
 # API endpoints
 info_quest = FastAPI()
 
@@ -48,7 +23,7 @@ async def root():
 
 @info_quest.get("/questlines", response_model=list[QuestLine])
 async def get_questlines():
-    return {"message": "many questlines"}
+    return ql.load_questlines()
 
 @info_quest.get("/quests/{quest_id}", response_model=Quest)
 async def get_quest(quest_id: int):
