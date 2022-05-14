@@ -8,7 +8,7 @@ const getQuests = () => {
     return getMockQuests();
 }
 
-const getUserInfo = async () => {
+const getUserInfo = () => {
     const json = fetch(userInfoEndpoint).then((response) => {
         return response.json();
     });
@@ -16,7 +16,7 @@ const getUserInfo = async () => {
     return getMockUserInfo();
 }
 
-const getQuest = async (id) => {
+const getQuest = (id) => {
     const json = fetch(`${questEndpoint}/${id}/`).then((response) => {
         return response.json()
     })
