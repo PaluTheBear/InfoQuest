@@ -1,20 +1,7 @@
 from APIModels import *
 import QuestLoader as ql
-import sqlite3
 from fastapi import FastAPI
 
-# Database
-def get_db():
-    con = sqlite3.connect('infoquest.db')
-    cur = con.cursor()
-    cur.execute("create table if not exists UserProgress (user_id, quest_id, subtask_id)")
-    con.commit()
-    try:
-        yield con
-    finally:
-        con.close()
-
-# API endpoints
 info_quest = FastAPI()
 
 @info_quest.get("/")
@@ -24,6 +11,10 @@ async def root():
 @info_quest.get("/questlines", response_model=list[QuestLine])
 async def get_questlines():
     return ql.get_all_questlines()
+
+@info_quest.get("/questlines/{questline_id}", response_model=QuestLine)
+async def get_questline(questline_id: int):
+    return ql.get_questline(questline_id)
 
 @info_quest.get("/quests/{quest_id}", response_model=Quest)
 async def get_quest(quest_id: int):

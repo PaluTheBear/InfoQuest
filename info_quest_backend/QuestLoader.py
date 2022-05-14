@@ -6,7 +6,7 @@ try:
 except ImportError:
     from yaml import Loader, Dumper
 
-all_questlines = []
+all_questlines = {}
 all_quests = {}
 
 def _load_questlines():
@@ -19,7 +19,7 @@ def _load_questlines():
                 id = questline_id,
                 title = questline_yaml['title'])
             questline.quests = [_load_quest(quest_path) for quest_path in questline_yaml['quests']]
-            all_questlines.append(questline)
+            all_questlines[questline_id] = questline
             questline_id += 1
 
 def _load_quest(quest_path: str):
@@ -45,12 +45,13 @@ def _load_quest(quest_path: str):
         return quest_id
 
 def get_all_questlines():
-    return all_questlines
+    return list(all_questlines.values())
+
+def get_questline(questline_id: int):
+    return all_questlines[questline_id]
 
 def get_quest(quest_id: int):
     return all_quests[quest_id]
 
 # Initialization
 _load_questlines()
-
-print(all_questlines)
