@@ -1,0 +1,8 @@
+title: "Final quest"
+subtasks:
+  - subtask:
+      title: "Defeat the giant enemy spider"
+      description: "Dudududududududu dut dut duuu dut dut dududududu deeee du du du duu"
+      validation:
+        type: "Checkmark"
+        solution: ""

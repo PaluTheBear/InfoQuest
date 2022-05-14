@@ -50,6 +50,9 @@ const App = () => {
                         <Route path="/questLine">
                             <Route path=":id" element={<QuestLinePage />}/>
                         </Route>
+                        <Route path="/quest">
+                            <Route path=":id" element={<Quest/>}/>
+                        </Route>
                     </Routes>
                 </div>
             </div>
