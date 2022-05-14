@@ -1,6 +1,19 @@
+import sqlite3
 from fastapi import FastAPI
 from pydantic import BaseModel
 
+# Database
+def get_db():
+    con = sqlite3.connect('infoquest.db')
+    cur = con.cursor()
+    cur.execute("create table if not exists UserProgress (user_id, quest_id, subtask_id)")
+    con.commit()
+    try:
+        yield con
+    finally:
+        con.close()
+
+# API models
 class Validation(BaseModel):
     type: str
     solution: str
@@ -26,6 +39,7 @@ class QuestProgress(BaseModel):
 class ProgressSummary(BaseModel):
     quests: list[QuestProgress]
 
+# API endpoints
 info_quest = FastAPI()
 
 @info_quest.get("/")
