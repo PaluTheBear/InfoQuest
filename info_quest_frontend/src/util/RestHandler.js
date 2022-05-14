@@ -1,23 +1,31 @@
 import {questEndpoint, questsEndpoint, userInfoEndpoint} from "./constants";
 
-const getQuests = async () => {
-    const response = await fetch(questsEndpoint)
-    const json = response.json();
+const getQuests = () => {
+    const json = fetch(questsEndpoint).then((response) => {
+        return response.json();
+    })
+    // return json
     return getMockQuests();
 }
 
 const getUserInfo = async () => {
-    const response = await fetch(userInfoEndpoint)
-    const json = response.json();
+    const json = fetch(userInfoEndpoint).then((response) => {
+        return response.json();
+    });
+    // return json
     return getMockUserInfo();
 }
 
 const getQuest = async (id) => {
-    const response = await fetch(`${questEndpoint}/${id}/`)
-    const json = response.json();
+    const json = fetch(`${questEndpoint}/${id}/`).then((response) => {
+        return response.json()
+    })
+    // return json
     return getMockQuest();
 }
 
 const getMockQuests = () => 0
 const getMockUserInfo = () => 0
 const getMockQuest = () => 0
+
+export {getUserInfo, getQuest, getQuests}
