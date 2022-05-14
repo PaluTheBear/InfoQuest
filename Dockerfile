@@ -26,7 +26,7 @@ WORKDIR /app/backend/
 
 COPY /info_quest_backend/ /app/backend/
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN python3 -m pip install --no-cache-dir -r requirements.txt
 RUN chmod +x run.sh
 
 EXPOSE 3000
