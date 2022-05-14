@@ -1,17 +1,11 @@
 - questline:
-    title: "Questline 1"
+    title: "Basics"
     quests: 
-      - "./data/questline1/quest11.yaml"
-      - "./data/questline1/quest12.yaml"
+      - "./data/basics/accounts.yaml"
+      - "./data/basics/lehrveranstaltungen.yaml"
+      - "./data/basics/campus.yaml"
 
 - questline:
-    title: "Questline 2"
+    title: "Programmiersprachen"
     quests:
-      - "./data/questline2/quest21.yaml"
-
-- questline:
-    title: "Questline 3"
-    quests:
-      - "./data/questline3/quest31.yaml"
-      - "./data/questline3/quest32.yaml"
-      - "./data/questline3/quest33.yaml"
+      - "./data/programmiersprachen/java.yaml"

@@ -1,0 +1,27 @@
+title: "Den Campus entdecken"
+subtasks:
+  - subtask:
+      title: "Informatikgebäude"
+      description: >
+        Der einsturzgefährdete Architektur-Unfall in der Universitätsstraße 38 ist unser Informatikgebäude. Aber es zählen
+        ja bekanntlich die inneren Werte, und die Menschen die man im Informatik-Gebäude sind alle awesome. Schau dich mal um,
+        quatsch Leute an, und fühle dich wie daheim.
+      validation:
+        type: "Checkmark"
+        solution: ""
+  - subtask:
+      title: "47er Gebäude"
+      description: >
+        Das 47er Gebäudt ist das andere große Gebäude, was unserem in fast jedem Aspekt überlegen ist und du wahrscheinlich 
+        deshalb einige Vorlesungen dort hast. Schwelge dich in dem Luxus und bestaune die Größe und Magnifikanz der Räume.
+      validation:
+        type: "Checkmark"
+        solution: ""
+  - subtask:
+      title: "Frischemarkt Roth"
+      description: >
+        Der Zentrum des studentischen Universums. Die Quelle von Snacks, Getränken, LKWs und komischen Zeitschriften. Trotz
+        der stattlichen Preise aber immer gut besucht. Gönn dir!
+      validation:
+        type: "Checkmark"
+        solution: ""

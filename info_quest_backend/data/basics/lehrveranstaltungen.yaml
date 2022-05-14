@@ -1,0 +1,20 @@
+title: "Lehrveranstaltungen anmelden"
+subtasks:
+  - subtask:
+      title: "Vorlesungen anmelden"
+      description: >
+        Theoretisch musst du dich für Vorlesungen nicht anmelden. Praktisch schon damit du die ILIAS-Zugänge bekommst, ohne die nix
+        geht. Also geh in C@MPUS in 'Mein Studium', suche in dem bAuM die richtigen Knoten zur Lehrveranstalung, suche den [VL] Knoten
+        und klicke dich durch bis du angemeldet bist. Wenn du fertig bist gehe in C@MPUS zu 'Meine Lehrveranstaltungen' und gebe
+        den Text ein, der in grün bei jeder Veranstaltung angezeigt wird.
+      validation:
+        type: "Password"
+        solution: "Fixplatz zugewiesen"
+  - subtask:
+      title: "Übungsgruppe anmelden"
+      description: >
+        Opfere deinen Erstgeborenen in der Nacht vor der Übungsgruppen-Anmeldung, um eine realistische Chance auf einen Platz in einem
+        Zeitslot zu bekommen außer 'Montag 8:00 Uhr'. Gib anschließend 'pommes' ein
+      validation:
+        type: "Password"
+        solution: "pommes"

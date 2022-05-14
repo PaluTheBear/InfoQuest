@@ -1,0 +1,23 @@
+title: "Accounts"
+subtasks:
+  - subtask:
+      title: "ZDI Account"
+      description: >
+        Für den zentralen Rechnerpool der Informatik (ZDI) brauchst du nochmal einen eigenen Account (weil natürlich).
+        Üblicherweise gibt es dafür nochmal eigene Einführungsveranstaltungen, wo du deine initialen Login-Daten bekommst.
+        Meistens wirst du dann auch gezwungen, dein Passwort sofort zu ändern, dass du dir dringend notieren solltest, weil
+        du es NIE WIEDER ÄNDERN KANNST (naja fast, du musst den Admin fragen, aber es ist trotzdem umständlich). Wenn du fertig
+        bist, kannst du dich testweise per SSH bei marvin.informatik.uni-stuttgart.de mit deinen Daten einloggen.
+      validation:
+        type: "Checkmark"
+        solution: ""
+  - subtask:
+      title: "ZDI Mail-Account"
+      description: >
+        Du dachtest du wärst fertig? HA! Du musst dir nämlich für deinen Informatik Mail-Account noch einen separaten Account 
+        anlegen. Details dazu entnimmst du wieder den entsprechenden Veranstaltungen. Wenn du deinen Account hast, kannst du
+        dich auf https://studimail.informatik.uni-stuttgart.de anmelden. Um diesen Subtask abzuschließen, finder über den
+        passenden Reiter in der Sidebar heraus, auf welcher Technologie der Mail-Client basiert.
+      validation:
+        type: "Password"
+        solution: "Roundcube Webmail"

@@ -1,0 +1,10 @@
+title: "Java lernen"
+subtasks:
+  - subtask:
+      title: "Java installieren"
+      description: >
+        Wie jede gute Technlogie muss auch Java erstmal installiert werden. Also geh auf 'java.com' und hol dir die aktuelle Version
+        des Java Software Development Kits (SDK) für dein Lieblings-Betriebssystem
+      validation:
+        type: "Checkmark"
+        solution: ""
