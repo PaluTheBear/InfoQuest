@@ -4,9 +4,11 @@ import React from "react";
 const Header = () => {
     return (
         <div className="PageHeader">
-            <div className="AppIcon"/>
-            <div className="PageTitle"/>
-            <div className="ProfileWidget"/>
+            <div className="AppIcon">
+            </div>
+            <div className="ProfileWidget">
+
+            </div>
         </div>
     )
 }

@@ -1,13 +1,17 @@
 .PageHeader {
     grid-area: header;
-    background: black;
+    display: grid;
+    grid-template-areas: "app-icon . profile";
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 4fr 1fr;
 }
 
 .AppIcon {
-}
-
-.PageTitle {
+    grid-area: app-icon;
+    background: red;
 }
 
 .ProfileWidget {
+    grid-area: profile;
+    background: red;
 }

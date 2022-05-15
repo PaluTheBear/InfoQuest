@@ -10,20 +10,14 @@ import {Route, Routes, useParams} from 'react-router-dom'
 import CurrentUserContext from '../user';
 
 const App = () => {
-    const [isLoading, setIsLoading] = useState(true)
-    const [questLines, setQuestLines] = useState([])
-    const [userInfo, setUserInfo] = useState([{id: 0, progress: 5}, {id: 2, progress: 2}])
+    const [isLoading, setIsLoading] = useState(true);
+    const [questLines, setQuestLines] = useState([]);
+    const [userInfo, setUserInfo] = useState([]);
 
     userInfo.updateProgress = async (questId, progress) => {
-        console.log('old prog');
-        console.log(userInfo);
         await updateProgress(questId, progress);
 
         const updatedUserInfo = await getUserInfo();
-        console.log(questId + ' ' + progress)
-
-        console.log('new prog');
-        console.log(updatedUserInfo);
         setUserInfo(updatedUserInfo);
     };
 
@@ -35,7 +29,7 @@ const App = () => {
                 .then((result) => {
                     if (result === undefined) throw result;
                     return result;
-                })
+                });
         }
 
         async function fetchQuestLines() {
@@ -43,7 +37,7 @@ const App = () => {
                 .then(result => {
                     if (result === undefined) throw result;
                     return result;
-                })
+                });
         }
 
         fetchUserInfo()
@@ -55,7 +49,7 @@ const App = () => {
             .finally(() => {
                 setIsLoading(loading) // Is this thread safe?!?
                 console.log("Fetched User Info")
-            })
+            });
 
         fetchQuestLines()
             .then(result => setQuestLines(result))
@@ -66,14 +60,14 @@ const App = () => {
             .finally(() => {
                 setIsLoading(loading) // Is this thread safe?!?
                 console.log("Fetched Quest Lines")
-            })
+            });
 
 
     }, [])
 
     useEffect(() => {
         setIsLoading(!(questLines !== null && userInfo !== null))
-    }, [questLines, userInfo])
+    }, [questLines, userInfo]);
 
     const QuestLinePage = () => {
         const {id} = useParams();
@@ -98,22 +92,19 @@ const App = () => {
 
     return (
         <CurrentUserContext.Provider value={userInfo}>
-            <div>
-                <div className="App">
-                    <Header title={""}/>
-                    <div className="RenderPage">
-                        <Routes>
-                            <Route path="/" element={<Index/>}/>
-                            <Route path="/questLine">
-                                <Route path=":id" element={<QuestLinePage/>}/>
-                            </Route>
-                            <Route path="/quest">
-                                <Route path=":id" element={<QuestPage/>}/>
-                            </Route>
-                        </Routes>
-                    </div>
+            <div className="App">
+                <Header title={""}/>
+                <div className="RenderPage">
+                    <Routes>
+                        <Route path="/" element={<Index/>}/>
+                        <Route path="/questLine">
+                            <Route path=":id" element={<QuestLinePage/>}/>
+                        </Route>
+                        <Route path="/quest">
+                            <Route path=":id" element={<QuestPage/>}/>
+                        </Route>
+                    </Routes>
                 </div>
-                }
             </div>
         </CurrentUserContext.Provider>
     );
