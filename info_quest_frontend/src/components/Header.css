@@ -8,10 +8,22 @@
 
 .AppIcon {
     grid-area: app-icon;
-    background: red;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.AppLogo {
+    width: 5vw;
 }
 
 .ProfileWidget {
     grid-area: profile;
-    background: red;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.UserIcon {
+    font-size: 4em;
 }
