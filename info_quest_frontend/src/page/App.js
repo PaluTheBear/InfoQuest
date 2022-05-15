@@ -5,15 +5,13 @@ import Header from "../components/Header"
 import Landing from "./Landing";
 import QuestLine from "./QuestLine";
 import Quest from "./Quest";
-import {getQuestlines, getUserInfo} from "../util/RestHandler";
+import {getQuestlines, getUserInfo, updateProgress} from "../util/RestHandler";
 import {Route, Routes, useParams} from 'react-router-dom'
 import CurrentUserContext from '../user';
-import { updateProgress } from '../util/RestHandler';
 
 const App = () => {
     const [isLoading, setIsLoading] = useState(true)
-    const [page, setPage] = useState("LANDING")
-    const [questLines, setQuestLines] = useState([{title: "questLineTitel"}])
+    const [questLines, setQuestLines] = useState([])
     const [userInfo, setUserInfo] = useState([{id: 0, progress: 5}, {id: 2, progress: 2}])
 
     userInfo.updateProgress = async (questId, progress) => {
@@ -30,50 +28,87 @@ const App = () => {
     };
 
     useEffect(() => {
-        async function fetchData() {
-            const rUI = await getUserInfo()
-            const rQL = await getQuestlines()
-            setQuestLines(rQL)
-            setUserInfo(rUI)
+        let loading = false;
+
+        async function fetchUserInfo() {
+            return await getUserInfo()
+                .then((result) => {
+                    if (result === undefined) throw result;
+                    return result;
+                })
         }
 
-        fetchData()
-            .finally(() => setIsLoading(false))
+        async function fetchQuestLines() {
+            return await getQuestlines()
+                .then(result => {
+                    if (result === undefined) throw result;
+                    return result;
+                })
+        }
+
+        fetchUserInfo()
+            .then(result => setUserInfo(result))
+            .catch(err => {
+                loading = true
+                console.error(`Resthandler returned: ${err}`)
+            })
+            .finally(() => {
+                setIsLoading(loading) // Is this thread safe?!?
+                console.log("Fetched User Info")
+            })
+
+        fetchQuestLines()
+            .then(result => setQuestLines(result))
+            .catch(err => {
+                loading = true
+                console.error(`Resthandler returned: ${err}`)
+            })
+            .finally(() => {
+                setIsLoading(loading) // Is this thread safe?!?
+                console.log("Fetched Quest Lines")
+            })
+
+
     }, [])
 
-    const handleQuestLineClick = () => {
-        setPage("QUESTLINE")
-    }
+    useEffect(() => {
+        setIsLoading(!(questLines !== null && userInfo !== null))
+    }, [questLines, userInfo])
 
     const QuestLinePage = () => {
-        const { id } = useParams();
+        const {id} = useParams();
 
         return <QuestLine questLineId={id}/>;
     }
 
     const QuestPage = () => {
-        const { id } = useParams();
+        const {id} = useParams();
 
         return <Quest questId={id}/>;
+    }
+
+    const Index = () => {
+        return (
+            <>
+                {isLoading && <LoadingPage/>}
+                {!isLoading && <Landing questLineJson={questLines}/>}
+            </>
+        );
     }
 
     return (
         <CurrentUserContext.Provider value={userInfo}>
             <div>
-                {isLoading &&
-                <LoadingPage/>
-                }
-                {!isLoading &&
                 <div className="App">
-                    <Header title={page}/>
+                    <Header title={""}/>
                     <div className="RenderPage">
                         <Routes>
-                            <Route path="/" element={<Landing questLineJson={questLines} onClick={handleQuestLineClick}/>}/>
+                            <Route path="/" element={<Index/>}/>
                             <Route path="/questLine">
-                                <Route path=":id" element={<QuestLinePage />}/>
+                                <Route path=":id" element={<QuestLinePage/>}/>
                             </Route>
                             <Route path="/quest">
-                                <Route path=":id" element={<QuestPage />}/>
+                                <Route path=":id" element={<QuestPage/>}/>
                             </Route>
                         </Routes>
                     </div>

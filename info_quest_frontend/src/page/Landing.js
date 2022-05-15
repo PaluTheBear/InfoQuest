@@ -3,7 +3,7 @@ import * as PropTypes from "prop-types";
 import "./Landing.css"
 import React from "react";
 
-const Landing = ({questLineJson, onClick}) => {
+const Landing = ({questLineJson}) => {
 
     return (
         <div className="LandingPage">

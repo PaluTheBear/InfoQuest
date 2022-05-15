@@ -13,7 +13,8 @@ RUN npm install -g serve
 
 WORKDIR /app/info_quest_frontend/
 
-COPY /info_quest_frontend/package.json /info_quest_frontend/package-lock.json  /app/info_quest_frontend/
+# COPY /info_quest_frontend/package.json /info_quest_frontend/package-lock.json  /app/info_quest_frontend/
+COPY /info_quest_frontend/package.json /app/info_quest_frontend/
 
 RUN npm install
 

@@ -17,3 +17,25 @@
     align-self: stretch;
     background: white;
 }
+
+.LoadingPage {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.App-logo {
+    width: 50%;
+    animation: rotation 6s linear infinite;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
