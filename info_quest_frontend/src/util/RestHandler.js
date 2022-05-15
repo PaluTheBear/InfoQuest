@@ -21,7 +21,7 @@ const getQuestline = async (id) => {
 
 const getUserInfo = async () => {
     //return getMockUserInfo();
-    const json = await fetch(userInfoEndpoint)
+    const json = await fetch(`${userInfoEndpoint}/${USER_ID}`)
         .then(response => response.json())
         .catch(err => console.log(err));
     return json
@@ -37,7 +37,17 @@ const getQuest = async (id) => {
 
 const updateProgress = async (questId, progress) => {
     // return console.log('updated progress');
-    const json = await fetch(`${userInfoEndpoint}/${USER_ID}`)
+    const json = await fetch(`${userInfoEndpoint}/${USER_ID}`, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            quest_id: questId,
+            subtask_id: progress
+        })
+    })
         .then(response => response.json())
         .catch(err => console.log(err));
     return json

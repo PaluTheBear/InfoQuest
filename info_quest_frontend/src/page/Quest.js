@@ -3,6 +3,9 @@ import {getQuest} from "../util/RestHandler";
 import CurrentUserContext from "../user";
 
 const Quest = ({ questId }) => {
+    // We need this as a number...
+    questId = parseInt(questId);
+
     const [questData, setQuestData] = useState({
         title: '',
         subtasks: []
@@ -19,8 +22,10 @@ const Quest = ({ questId }) => {
     }, [ questId ])
 
     const userProgress = useContext(CurrentUserContext);
-    //const progress = userProgress.find(progressEntry => progressEntry.id === questId)?.progress || 0;
-    const progress = 0;
+    const progress = userProgress.find(progressEntry => progressEntry.quest_id === questId)?.subtask_id || 0;
+    console.log('progress')
+    console.log(questId, userProgress)
+    console.log(userProgress.find(progressEntry => progressEntry.quest_id === questId))
 
     return (
         <div>
@@ -30,7 +35,7 @@ const Quest = ({ questId }) => {
                     <div key={subTask.title}>
                         <h2>{subTask.title}</h2>
                         <p>{subTask.description}</p>
-                        <SubtaskValidator {...subTask.validation} succeeded={progress > taskIdx} onSuccess={() => {
+                        <SubtaskValidator {...subTask.validation} current={taskIdx === progress} succeeded={progress > taskIdx} onSuccess={() => {
                             userProgress.updateProgress(questId, progress + 1);
                         }} />
                     </div>
@@ -40,25 +45,25 @@ const Quest = ({ questId }) => {
     );
 }
 
-const SubtaskValidator = ({ type, succeeded, onSuccess, ...props }) => {
+const SubtaskValidator = ({ type, succeeded, current, onSuccess, ...props }) => {
     switch (type) {
-        case 'checkmark':
+        case 'Checkmark':
             return <div>
                 <input type="checkbox" onChange={e => {
                     if (e.target.checked) {
                         onSuccess();
                     }
 
-                }} disabled={succeeded}></input>
+                }} disabled={!current} checked={succeeded}></input>
                 <span>Ich habe diese Aufgabe abgeschlossen (wirklich!)</span>
             </div>
-        case 'question':
+        case 'Password':
             return <div>
                 <input type="input" onChange={e => {
-                    if (e.target.value === props.answer) {
+                    if (e.target.value === props.solution) {
                         onSuccess();
                     }
-                }} disabled={succeeded}></input>
+                }} disabled={!current}></input>
                 <span>Gib die richtige Antwort ein</span>
             </div>;
     }

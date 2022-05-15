@@ -17,9 +17,15 @@ const App = () => {
     const [userInfo, setUserInfo] = useState([{id: 0, progress: 5}, {id: 2, progress: 2}])
 
     userInfo.updateProgress = async (questId, progress) => {
+        console.log('old prog');
+        console.log(userInfo);
         await updateProgress(questId, progress);
 
         const updatedUserInfo = await getUserInfo();
+        console.log(questId + ' ' + progress)
+
+        console.log('new prog');
+        console.log(updatedUserInfo);
         setUserInfo(updatedUserInfo);
     };
 
