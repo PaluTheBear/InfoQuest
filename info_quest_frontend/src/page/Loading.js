@@ -1,8 +1,8 @@
-import logo from "../logo.svg";
+import logo from "../logo.png";
 import './App.css';
 import React from "react";
 
-const LoadingPage = () => {
+const Loading = () => {
     return (
         <div className="LoadingPage">
             <img src={logo} className="App-logo" alt="logo"/>
@@ -10,4 +10,4 @@ const LoadingPage = () => {
     )
 }
 
-export default LoadingPage;
+export default Loading;

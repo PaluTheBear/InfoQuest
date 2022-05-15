@@ -1,6 +1,6 @@
 import './App.css';
 import React, {useEffect, useState} from "react";
-import LoadingPage from "./LoadingPage";
+import Loading from "./Loading";
 import Header from "../components/Header"
 import Landing from "./Landing";
 import QuestLine from "./QuestLine";
@@ -44,10 +44,10 @@ const App = () => {
             .then(result => setUserInfo(result))
             .catch(err => {
                 loading = true
+                setIsLoading(loading) // Is this thread safe?!?
                 console.error(`Resthandler returned: ${err}`)
             })
             .finally(() => {
-                setIsLoading(loading) // Is this thread safe?!?
                 console.log("Fetched User Info")
             });
 
@@ -55,10 +55,10 @@ const App = () => {
             .then(result => setQuestLines(result))
             .catch(err => {
                 loading = true
+                setIsLoading(loading) // Is this thread safe?!?
                 console.error(`Resthandler returned: ${err}`)
             })
             .finally(() => {
-                setIsLoading(loading) // Is this thread safe?!?
                 console.log("Fetched Quest Lines")
             });
 
@@ -66,7 +66,9 @@ const App = () => {
     }, [])
 
     useEffect(() => {
-        setIsLoading(!(questLines !== null && userInfo !== null))
+        // 10.3 second startuptime - remove timeout for less startup :P
+        // This is only to display our fancy a f loading page. don't judge pls!
+        (questLines.length > 0 && userInfo !== null) ? setTimeout(() => setIsLoading(false), 10000) : setIsLoading(true)
     }, [questLines, userInfo]);
 
     const QuestLinePage = () => {
@@ -84,7 +86,7 @@ const App = () => {
     const Index = () => {
         return (
             <>
-                {isLoading && <LoadingPage/>}
+                {isLoading && <Loading/>}
                 {!isLoading && <Landing questLineJson={questLines}/>}
             </>
         );
