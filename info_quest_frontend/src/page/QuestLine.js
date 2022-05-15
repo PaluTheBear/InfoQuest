@@ -1,10 +1,11 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import './QuestLine.css';
 import { GiBookmarklet } from 'react-icons/gi';
 import { getQuest, getQuestline } from "../util/RestHandler";
 import Xarrow from "react-xarrows";
 import { NavLink } from "react-router-dom";
+import CurrentUserContext from "../user";
 
 const QuestLine = ({ questLineId }) => {
     const [quests, setQuests] = useState([]);
@@ -20,6 +21,8 @@ const QuestLine = ({ questLineId }) => {
 
         loadQuests().then(setQuests);
     }, [ questLineId ]);
+
+    const userProgress = useContext(CurrentUserContext);
 
     return (
         <>
@@ -45,7 +48,15 @@ const QuestLine = ({ questLineId }) => {
                             <div className='quest-sign' id={quest.id.toString()} key={quest.id}>
                                 <GiBookmarklet />
                             </div>
-                            <div className='quest-text'>{quest.title}</div>
+                            <div className='quest-text'>
+                                {quest.title}
+                                <br />
+                                (
+                                 {userProgress.find(entry => entry.quest_id === quest.id)?.subtask_id || 0}
+                                 /
+                                 {quest.subtasks.length}
+                                )
+                            </div>
                         </div>
                     </NavLink>
                 ))}
