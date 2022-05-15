@@ -10,10 +10,10 @@
     justify-content: center;
     align-items: center;
 
-    font-family: "Comic Code Ligatures Medium";
-    font-size: xx-large;
-
     color: black;
+    font-family: OpenSansLight, sans-serif;
+    font-size: xx-large;
+    line-break: anywhere;
 
 }
 

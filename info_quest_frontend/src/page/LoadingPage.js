@@ -4,7 +4,7 @@ import React from "react";
 
 const LoadingPage = () => {
     return (
-        <div className="App">
+        <div className="LoadingPage">
             <img src={logo} className="App-logo" alt="logo"/>
         </div>
     )
