@@ -4,7 +4,7 @@
 
     display: grid;
     grid-template-columns: [col0] 5% [col1] 10em [col2] auto [col3] 10em [col4] 5% [col-end];
-    grid-template-rows: [row0] 10% [row1] auto [row-end];
+    grid-template-rows: [row0] 1fr [row1] 6fr [row-end];
 
     grid-template-areas:
     "header header header header header"
