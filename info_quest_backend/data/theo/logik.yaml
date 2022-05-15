@@ -1,0 +1,11 @@
+title: "Logik"
+subtasks:
+  - subtask:
+      title: "Bool"
+      description: >
+        Der lieber Herr Boole hat sich vor vielen Jahren was ganz tolles ausgedacht: UND und ODER und NICHT und NUND und NODER und...
+        Auf jeden Fall kann man damit ganz tolle logische Aussagen bauen. Probier das mal aus. Die Antwort ist der englische boolsche
+        Operator für "entweder oder"
+      validation:
+        type: "Password"
+        solution: "xor"

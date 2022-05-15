@@ -17,3 +17,6 @@
       - "./data/theo/sprachklassen.yaml"
       - "./data/theo/automaten.yaml"
       - "./data/theo/turingmaschinen.yaml"
+      - "./data/theo/logik.yaml"
+      - "./data/theo/komplexität.yaml"
+      - "./data/theo/reduktion.yaml"

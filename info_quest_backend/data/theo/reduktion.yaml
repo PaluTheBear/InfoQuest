@@ -1,0 +1,11 @@
+title: "Reduktion"
+subtasks:
+  - subtask:
+      title: "Wieso? Warum? Weshalb?"
+      description: >
+        Mit sog. Reduktionen kannst du bestimmte komplexe Probleme in der theoretischen Informatik auf andere reduzieren, um zu
+        zeigen dass sie gleichschwer zu lösen sind. Das ist mächtig, sollte aber gut geübt werden, da du es in den Theo Klausuren
+        brauchen wirst und es sehr sehr sehr ... sehr knifflig sein kann.
+      validation:
+        type: "Checkmark"
+        solution: ""

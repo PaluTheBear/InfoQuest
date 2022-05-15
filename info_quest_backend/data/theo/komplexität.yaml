@@ -1,0 +1,10 @@
+title: "Komplexität"
+subtasks:
+  - subtask:
+      title: "LOOP"
+      description: >
+        LOOP ist eine einfache theoretische Programmiersprache, mit der Probleme gelöst werden können und dann in bestimmten
+        Komplexitätsklassen landen. Informiere dich dazu und finde heraus, wie die andere Sprache heißt in Theo (fängt mit 'W' an).
+      validation:
+        type: "Password"
+        solution: "WHILE"
