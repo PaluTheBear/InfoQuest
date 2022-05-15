@@ -1,6 +1,4 @@
 .quest-line {
-    width: 100%;
-    height: 100%;
     display: grid;
     grid-template-columns: repeat(5,1fr); /*define the number of column*/
     grid-auto-flow: dense; /* this is important to fill all the space*/

@@ -1,8 +1,9 @@
 .LandingPage {
     display: flex;
     flex-flow: row wrap;
-    justify-content: flex-start;
-    align-content: flex-start;
+    justify-content: center;
+    align-items: flex-start;
     row-gap: 5rem;
     background-color: white;
+    padding-top: 10%;
 }

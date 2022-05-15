@@ -8,7 +8,7 @@ const Header = () => {
 
     const userProgress = useContext(CurrentUserContext);
 
-    const totalSubtasksDone = userProgress.map(entry => entry.subtask_id).reduce((a, b) => a + b);
+    const totalSubtasksDone = userProgress.map(entry => entry.subtask_id).reduce((a, b) => a + b, 0);
     const level = Math.floor(totalSubtasksDone / 10 + 1);
     const restXp = (totalSubtasksDone % 10) * 10;
 
