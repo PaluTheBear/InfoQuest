@@ -38,7 +38,7 @@ async def get_quests():
 async def get_quest(quest_id: int):
     return ql.get_quest(quest_id)
 
-@info_quest.get("/users/{user_id}", response_model=ProgressSummary)
+@info_quest.get("/users/{user_id}", response_model=List[QuestProgress])
 async def get_user_progress(user_id: int):
     return um.get_user_progress(user_id)
 

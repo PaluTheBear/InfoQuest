@@ -23,6 +23,3 @@ class Quest(BaseModel):
 class QuestProgress(BaseModel):
     quest_id: int
     subtask_id: int
-
-class ProgressSummary(BaseModel):
-    quests: List[QuestProgress] = []
