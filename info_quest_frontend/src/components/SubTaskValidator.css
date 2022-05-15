@@ -8,3 +8,10 @@
     width: 25px;
     height: 25px;
 }
+
+.cool-text-input {
+    margin-right: 1em;
+    height: 1.5em;
+    border: 2px solid black;
+    border-radius: 10px;
+}

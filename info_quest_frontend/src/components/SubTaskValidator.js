@@ -14,8 +14,8 @@ const SubtaskValidator = ({type, succeeded, current, onSuccess, ...props}) => {
                 <span> Ich habe diese Aufgabe abgeschlossen (wirklich!)</span>
             </div>
         case 'Password':
-            return <div>
-                <input type="input" onChange={e => {
+            return <div className='validator-container'>
+                <input type="input" className='cool-text-input' onChange={e => {
                     if (e.target.value === props.solution) {
                         onSuccess();
                     }
