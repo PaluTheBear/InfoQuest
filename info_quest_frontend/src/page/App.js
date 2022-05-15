@@ -68,7 +68,7 @@ const App = () => {
     useEffect(() => {
         // 10.3 second startuptime - remove timeout for less startup :P
         // This is only to display our fancy a f loading page. don't judge pls!
-        (questLines.length > 0 && userInfo !== null) ? setTimeout(() => setIsLoading(false), 10000) : setIsLoading(true)
+        (questLines.length > 0 && userInfo !== null) ? setIsLoading(false) : setIsLoading(true)
     }, [questLines, userInfo]);
 
     const QuestLinePage = () => {
