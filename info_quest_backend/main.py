@@ -45,3 +45,7 @@ async def get_user_progress(user_id: int):
 @info_quest.post("/users/{user_id}")
 async def update_user_progress(user_id: int, progress_update: QuestProgress):
     return um.update_user_progress(user_id, progress_update)
+
+@info_quest.delete("/users/{user_id}")
+async def delete_user_progress(user_id: int):
+    return um.delete_user_progress(user_id)

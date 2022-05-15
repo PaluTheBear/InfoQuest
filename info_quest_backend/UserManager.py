@@ -21,3 +21,7 @@ def get_user_progress(user_id: int):
 def update_user_progress(user_id: int, progress_update:QuestProgress):
     with con:
         con.execute("insert into UserProgress values (?, ?, ?)", (user_id, progress_update.quest_id, progress_update.subtask_id))
+
+def delete_user_progress(user_id: int):
+    with con:
+        con.execute("delete from UserProgress where user_id = %i" % user_id)
