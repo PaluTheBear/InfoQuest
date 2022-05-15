@@ -14,7 +14,6 @@ const Quest = ({ questId }) => {
     useEffect(() => {
         async function fetchData() {
             const rQuest = await getQuest(questId);
-            console.log(rQuest)
             setQuestData(rQuest)
         }
 
@@ -23,9 +22,6 @@ const Quest = ({ questId }) => {
 
     const userProgress = useContext(CurrentUserContext);
     const progress = userProgress.find(progressEntry => progressEntry.quest_id === questId)?.subtask_id || 0;
-    console.log('progress')
-    console.log(questId, userProgress)
-    console.log(userProgress.find(progressEntry => progressEntry.quest_id === questId))
 
     return (
         <div>

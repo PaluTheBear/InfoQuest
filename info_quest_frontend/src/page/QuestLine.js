@@ -4,7 +4,7 @@ import './QuestLine.css';
 import { GiBookmarklet } from 'react-icons/gi';
 import { getQuest, getQuestline } from "../util/RestHandler";
 import Xarrow from "react-xarrows";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const QuestLine = ({ questLineId }) => {
     const [quests, setQuests] = useState([]);
@@ -40,14 +40,14 @@ const QuestLine = ({ questLineId }) => {
             })}
             <div className='quest-line'>
                 {quests.map(quest => (
-                    <Link className='quest' to={`/quest/${quest.id}`}>
+                    <NavLink className='quest' to={`/quest/${quest.id}`}>
                         <div>
                             <div className='quest-sign' id={quest.id.toString()} key={quest.id}>
                                 <GiBookmarklet />
                             </div>
                             <div className='quest-text'>{quest.title}</div>
                         </div>
-                    </Link>
+                    </NavLink>
                 ))}
             </div>
         </>
