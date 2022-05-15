@@ -1,8 +1,10 @@
-import './Header.css'
+import './Header.css';
+import './Components.css';
 import React, { useContext } from "react";
 import logo from '../logo.png';
 import { BiUserCircle } from 'react-icons/bi';
 import CurrentUserContext from '../user';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
 
@@ -14,13 +16,15 @@ const Header = () => {
 
     return (
         <div className="PageHeader">
-            <div className="AppIcon">
-                <img src={logo} className="AppLogo" alt="logo"/>
-                <h1>InfoQuest</h1>
-            </div>
+            <NavLink to="/" className="noLink">
+                <div className="AppIcon">
+                    <img src={logo} className="AppLogo" alt="logo"/>
+                    <h1>InfoQuest</h1>
+                </div>
+            </NavLink>
             <div className="ProfileWidget">
                 <h3>Lvl {level} ({restXp}/100XP)</h3>
-                <BiUserCircle className='UserIcon' />
+                <BiUserCircle className="UserIcon" />
             </div>
         </div>
     )
