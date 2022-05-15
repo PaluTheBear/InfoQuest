@@ -1,0 +1,10 @@
+title: "Automaten"
+subtasks:
+  - subtask:
+      title: "Mmmmh"
+      description: >
+        Finde einen Snack Automaten und gönne dir deinen Lieblingssnacks. Informiere dich dann, was es mit 'Endlichen Automaten'
+        auf sich hat. Manche Automaten verhalten sich bei jeder Ausführung gleich. Deren deutsche Abkürzung (3 Zeichen) ist die Lösung.
+      validation:
+        type: "Password"
+        solution: "DEA"

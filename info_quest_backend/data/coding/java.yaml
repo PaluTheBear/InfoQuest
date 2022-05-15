@@ -8,3 +8,30 @@ subtasks:
       validation:
         type: "Checkmark"
         solution: ""
+  - subtask:
+      title: "Klassen"
+      description: >
+        Java ist eine objekt-orientierte Sprache (in PSE hast du bestimmt gelernt was das ist), weshalb sich alles in Klassen abspielt.
+        Erstelle also in einer IDE deiner Wahl eine .java Datei. Gib dann das Java Keyword für Klassen ein.
+      validation:
+        type: "Password"
+        solution: "class"
+  - subtask:
+      title: "Variablen"
+      description: >
+        Daten werden üblicherweise in sog. Variablen gespeichert. Die sind definiert durch eine Sichtbarkeit, Permutierbarkeit, Namen
+        und einem Typen (ja, in Java hat alles Typen, und das ist gut so). 'public' Variablen sind außerhalb der Klasse zugreifbar,
+        'package' (oder einfach leer) nur im gleichen Package und 'private' Variablen sind für die kleinen schmutzigen Geheimnisse jeder Klasse,
+        von denen andere Klasse erfahren soll. Erstelle eine Variable, die Text enthält und gib sie aus. Die Antwort ist der Name des
+        Typs für Zeichenketten in Java.
+      validation:
+        type: "Password"
+        solution: "string"
+  - subtask:
+      title: "Minecraft"
+      description: >
+        Da du nun praktisch alle wichtigen Basics zu Java beherrschst, können wir die Schwierigkeit etwas anheben. Entwickle also bitte
+        einen 1:1 Minecraft Klon und checke die Box wenn du fertig bist. Mach es auch wirklich. Wer sich selbst betrügt, den betrügt das Leben.
+      validation:
+        type: "Checkmark"
+        solution: ""

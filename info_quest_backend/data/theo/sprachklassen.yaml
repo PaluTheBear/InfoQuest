@@ -1,0 +1,9 @@
+title: "Sprachklassen"
+subtasks:
+  - subtask:
+      title: "Regulär"
+      description: >
+        regulär
+      validation:
+        type: "Password"
+        solution: "regulär"

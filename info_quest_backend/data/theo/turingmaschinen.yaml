@@ -1,0 +1,10 @@
+title: "Turing-Maschinen"
+subtasks:
+  - subtask:
+      title: "The Imitation Game"
+      description: >
+        Schau dir mal den Film 'The Imitation Game' mit Benediktus Cummypatch an. Darin spielt er nämlich Alan Turing, den Erfinder
+        der Turing Maschinen. Damit hast also was gelernt.
+      validation:
+        type: "Checkmark"
+        solution: ""
