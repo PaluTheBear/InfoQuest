@@ -6,6 +6,6 @@
       - "./data/basics/campus.yaml"
 
 - questline:
-    title: "Programmiersprachen"
+    title: "Coding"
     quests:
-      - "./data/programmiersprachen/java.yaml"
+      - "./data/coding/java.yaml"
