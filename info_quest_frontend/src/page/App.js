@@ -1,6 +1,6 @@
 import './App.css';
 import React, {useEffect, useState} from "react";
-import LoadingPage from "./LoadingPage";
+import Loading from "./Loading";
 import Header from "../components/Header"
 import Landing from "./Landing";
 import QuestLine from "./QuestLine";
@@ -92,7 +92,7 @@ const App = () => {
     const Index = () => {
         return (
             <>
-                {isLoading && <LoadingPage/>}
+                {isLoading && <Loading/>}
                 {!isLoading && <Landing questLineJson={questLines}/>}
             </>
         );
