@@ -1,10 +1,11 @@
+import './SubTaskValidator.css';
 import React from "react";
 
 const SubtaskValidator = ({type, succeeded, current, onSuccess, ...props}) => {
     switch (type) {
         case 'Checkmark':
-            return <div>
-                <input type="checkbox" onChange={e => {
+            return <div className='validator-container'>
+                <input type="checkbox" className="big-checkbox" onChange={e => {
                     if (e.target.checked) {
                         onSuccess();
                     }
