@@ -1,41 +1,46 @@
 import {questsEndpoint, questlinesEndpoint, userInfoEndpoint} from "./constants";
 
+// TODO: Add user handling
+const USER_ID = 0
+
 const getQuestlines = async () => {
-    return getMockQuestlines();
+    // return getMockQuestlines();
     const json = await fetch(questlinesEndpoint)
         .then(response => response.json())
         .catch(err => console.log(err));
-    // return json
+    return json
 }
 
 const getQuestline = async (id) => {
-    return getMockQuestlines()[id];
+    // return getMockQuestlines()[id];
     const json = await fetch(`${questlinesEndpoint}/${id}`)
         .then(response => response.json())
         .catch(err => console.log(err));
+    return json
 }
 
 const getUserInfo = async () => {
-    return getMockUserInfo();
+    //return getMockUserInfo();
     const json = await fetch(userInfoEndpoint)
         .then(response => response.json())
         .catch(err => console.log(err));
-    // return json
+    return json
 }
 
 const getQuest = async (id) => {
-    return getMockQuest();
+    // return getMockQuest();
     const json = await fetch(`${questsEndpoint}/${id}/`)
         .then(response => response.json())
         .catch(err => console.log(err));
-    // return json
+    return json
 }
 
 const updateProgress = async (questId, progress) => {
-    return console.log('updated progress');
-    const json = await fetch(`${userInfoEndpoint}/`)
+    // return console.log('updated progress');
+    const json = await fetch(`${userInfoEndpoint}/${USER_ID}`)
         .then(response => response.json())
         .catch(err => console.log(err));
+    return json
 }
 
 const getMockQuestlines = () => [

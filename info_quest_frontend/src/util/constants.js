@@ -3,4 +3,4 @@ export const urlBody = `http://localhost:${PORT_BACKEND}`
 
 export const questlinesEndpoint = `${urlBody}/questlines/`
 export const questsEndpoint = `${urlBody}/quests/`
-export const userInfoEndpoint = `${urlBody}/userinfo/`
+export const userInfoEndpoint = `${urlBody}/users/`
