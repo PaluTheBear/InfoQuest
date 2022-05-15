@@ -1,0 +1,11 @@
+title: "Definitionen"
+subtasks:
+  - subtask:
+      title: "Was ist das alles?"
+      description: >
+        In Theoretischer Informatik gibts viele tolle Sachen wie Sprachen, Grammatiken und Wörter. Die haben aber nur bedingt etwas
+        mit den dir wahrscheinlich bekannten Konzepten zu tun. Hör dir also mal eine Vorlesung oder zwei an um sie kennenzulernen.
+        Die Antwort ist das Kürzel des Instituts, dass Theoretische Informatik hier organisiert.
+      validation:
+        type: "Password"
+        solution: "FMI"

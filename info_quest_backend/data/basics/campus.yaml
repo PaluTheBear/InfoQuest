@@ -10,6 +10,14 @@ subtasks:
         type: "Checkmark"
         solution: ""
   - subtask:
+      title: "FIUS"
+      description: >
+        FIUS ist die Informatik Fachschaft der Uni Stuttgart und nebenbei der Organisator dieses Hackathons. Deshalb hab ich
+        auch nichts negatives über sie zu sagen, denn sie sind alle fantastisch. Statte ihnen mal einen Besuch ab :)
+      validation:
+        type: "Checkmark"
+        solution: ""
+  - subtask:
       title: "47er Gebäude"
       description: >
         Das 47er Gebäudt ist das andere große Gebäude, was unserem in fast jedem Aspekt überlegen ist und du wahrscheinlich 

@@ -9,3 +9,11 @@
     title: "Coding"
     quests:
       - "./data/coding/java.yaml"
+
+- questline:
+    title: "Theo"
+    quests:
+      - "./data/theo/definitionen.yaml"
+      - "./data/theo/sprachklassen.yaml"
+      - "./data/theo/automaten.yaml"
+      - "./data/theo/turingmaschinen.yaml"
